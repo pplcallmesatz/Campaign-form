@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="">
+
+    <title>Starter Template for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+
+    <style>
+        .am-iframe {
+             border: none;
+            outline: none;
+        }
+        
+/*Bottom */
+        .am-iframe.popup-bottom-bar {
+            width: calc(100% - 30px);
+            max-width: 500px;
+            position: fixed;
+            bottom: 15px;
+            right: -100%;
+            border-radius: 15px;
+            box-shadow: 0 1px 26px 0 rgba(0, 0, 0, 0.2);
+            transition: all linear 0.5s;
+            -webkit-transition: all linear 0.5s;
+            -moz-transition: all linear 0.5s;
+            -o-transition: all linear 0.5s;
+        }
+        .popup-bottom-bar.in {
+            right: 15px;
+        }
+        
+/*Middle*/
+         .am-iframe.popup-middle-bar {
+            width: calc(100% - 30px);
+            max-width: 500px;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            border-radius: 15px;
+            box-shadow: 0 1px 26px 0 rgba(0, 0, 0, 0.2);
+            transform: translate(-50%, -50%);
+            -webkit-transform: translate(-50%, -50%);
+            -moz-transform: translate(-50%, -50%);
+             -o-transform: translate(-50%, -50%);
+        }
+        
+/*Top*/
+        .am-iframe.am-top-bar {
+            width: 100%;
+            border-radius: 0px;
+            position: fixed;
+            top: -100%;
+            left: 0px;
+            right: 0px;
+             box-shadow: 0 2px 26px 0 rgba(0, 0, 0, 0.2);
+        }
+        .am-top-bar.in {
+            top: 0;
+        }
+        
+/*Bottom*/
+        .am-iframe.am-bottom-bar {
+             width: 100%;
+            border-radius: 0px;
+            position: fixed;
+           bottom: 0px;
+            left: 0px;
+            right: 0px;
+             box-shadow: 0 -2px 26px 0 rgba(0, 0, 0, 0.2);
+        }
+        
+    </style>
+</head>
+
+
+<body>
+
+
+
+<iframe src="index.html" class="am-iframe popup-bottom-bar"></iframe>
+    <!-- /.container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+   
+
+<script>
+$(document).ready(function(){
+winResiz()
+    });
+    $(window).resize(function(){
+winResiz()
+    });
+    
+    function winResiz(){
+        
+            // Create IE + others compatible event handler
+var eventMethod = window.addEventListener ? "addEventListener" : "attachEvent";
+var eventer = window[eventMethod];
+var messageEvent = eventMethod == "attachEvent" ? "onmessage" : "message";
+
+// Listen to message from child window
+eventer(messageEvent,function(e) {
+    var heightInner = e.data;
+    
+    var ifrm = $(".am-iframe");
+    
+    ifrm.css("height", heightInner);
+  console.log('parent received message!:  ',e.data);
+},true);
+    }
+    
+    
+    
+    // Pass Json value
+    
+//        var heightInner = JSON.parse(e.data);
+   
+    
+    
+//    var ifrm = $(".am-iframe");
+    
+//    ifrm.css("height", heightInner);
+//  console.log('parent received message!:  ',heightInner.height, heightInner.id);
+
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
